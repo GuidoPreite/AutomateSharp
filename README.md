@@ -2,6 +2,17 @@
 Automate Sharp is a Dataverse Custom API to run C# code inside a Power Automate Cloud Flow.
 
 Supported syntax is C# 4.0, it allows the <i>dynamic</i> keyword but doesn't support <a target="_blank" href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated">String interpolation</a>
+
+<h2>Important Notes</h2>
+<ul>
+  <li>
+    This Custom API can reference assemblies registered inside the GAC of the environment, there is no guarantee of which assembly will be present when the Custom API is executed. If a referenced assembly is not present, the C# code will not be executed and the Custom API fails.
+  </li>
+  <li>
+    To avoid unwanted code execution, it is recommended to put dynamic values only inside the parameter designed for Input.
+  </li>
+</ul>
+
 <h2>Instructions</h2>
 <ol>
   <li>Download the Managed Solution from <a target="_blank" href="https://github.com/GuidoPreite/AutomateSharp/releases/">Releases</a> page</li>
